@@ -13,6 +13,7 @@
         <item name="android:layout_width">64dp</item>
         <item name="contentDescription">Share on social media</item>
     </style>
+
     <style name="follow_social_icon">
         <item name="android:layout_weight">1</item>
         <item name="android:layout_height">20dp</item>
@@ -37,4 +38,13 @@
         <item name="android:textAlignment">viewStart</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

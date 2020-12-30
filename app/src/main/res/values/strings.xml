@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">GUVIClone</string>
-    <string name="drawer_open">Open</string>
-    <string name="drawer_close">Close</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="menu_home">Courses</string>
+    <string name="menu_contact_us">Contact Us</string>
+    <string name="menu_invite_friends">Invite Friends</string>
 </resources>
