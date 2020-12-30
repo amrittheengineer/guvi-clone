@@ -21,10 +21,16 @@ public class CoursesAdapter extends RecyclerView.Adapter<ViewHolder> {
 
     private Context context;
     private List<CourseItem> courseItems;
+    private OnClickListener listener;
 
-    public CoursesAdapter(Context context, List<CourseItem> courseItems) {
+    public CoursesAdapter(Context context, List<CourseItem> courseItems, OnClickListener listener) {
         this.context = context;
         this.courseItems = courseItems;
+        this.listener = listener;
+    }
+
+    public interface OnClickListener{
+        void onClick(String videoId, int position);
     }
 
     @NonNull
@@ -42,17 +48,26 @@ public class CoursesAdapter extends RecyclerView.Adapter<ViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
         if (holder instanceof ContentViewHolder){
             ContentViewHolder contentView = ((ContentViewHolder) holder);
-            CourseItem.CourseItemContent contentData = ((CourseItem.CourseItemContent) courseItems.get(position));
+            final CourseItem.CourseItemContent contentData = ((CourseItem.CourseItemContent) courseItems.get(position));
 
             contentView.title.setText(contentData.getTitle());
 
             if (contentData.isActive()){
                 contentView.active.setVisibility(View.VISIBLE);
                 contentView.course_content_card.setCardElevation(8);
+            }else {
+                contentView.active.setVisibility(View.GONE);
+                contentView.course_content_card.setCardElevation(0);
             }
+            contentView.course_content_card.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onClick(contentData.getVideoId(), position);
+                }
+            });
         } else if (holder instanceof  HeaderViewHolder){
             HeaderViewHolder contentView = ((HeaderViewHolder) holder);
             CourseItem.CourseItemHeader contentData = ((CourseItem.CourseItemHeader) courseItems.get(position));

@@ -13,6 +13,10 @@ public class CourseItem {
         this.viewType = viewType;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -24,17 +28,29 @@ public class CourseItem {
     }
 
     public static class CourseItemContent extends CourseItem {
-        private boolean active = false;
+        private boolean active;
+        private String videoId = "";
 
         public boolean isActive() {
             return active;
         }
 
-        public CourseItemContent(String title) {
-            super(title, CoursesAdapter.TYPE_CONTENT);
+        public void setActive(boolean active) {
+            this.active = active;
         }
-        public CourseItemContent(String title, boolean active) {
+
+        public String getVideoId() {
+            return videoId;
+        }
+
+        public CourseItemContent(String title, String videoId) {
             super(title, CoursesAdapter.TYPE_CONTENT);
+            this.videoId = videoId;
+            this.active = false;
+        }
+        public CourseItemContent(String title, String videoId, boolean active) {
+            super(title, CoursesAdapter.TYPE_CONTENT);
+            this.videoId = videoId;
             this.active = active;
         }
     }

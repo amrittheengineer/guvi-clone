@@ -6,10 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".CoursesActivity">
 
+    <view
+        android:id="@+id/yt_player"
+        class="com.google.android.youtube.player.YouTubePlayerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/courses_rv"
+        android:layout_below="@+id/yt_player"
         tools:listitem="@layout/layout_course_content"
         />
 
